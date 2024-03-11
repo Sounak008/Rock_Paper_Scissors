@@ -53,33 +53,6 @@ function gameWinner(computerSelection, playerSelection){
 let computerScore = 0;
 let playerScore = 0;
 let roundNumber = 1;
-for (i = 0; i < 5; i++)
-    {
-        
-        let computerChoice = getComputerChoice();
-        let playerSelection = getUserChoice();
-        console.log("Round "+roundNumber);
-        console.log("Computer choice: " + computerChoice);
-        console.log("Player choice: " + playerSelection);
-        console.log(gameWinner(computerChoice, playerSelection));
-        if (gameWinner(computerChoice, playerSelection).includes("win"))
-        {
-            playerScore++;
-        }
-        else if (gameWinner(computerChoice, playerSelection).includes("lose"))
-        {
-            computerScore++;
-        }
-        else
-        {
-            playerScore++;
-            computerScore++;
-        }
-        console.log("Final Score: ");
-        console.log("Player score: " + playerScore);
-        console.log("Computer score: " + computerScore);
-        roundNumber++;
-    }
 function win(){
 if (playerScore>computerScore)
 {
