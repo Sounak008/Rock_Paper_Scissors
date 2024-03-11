@@ -37,10 +37,23 @@ function getComputerChoice() {
     }
   }
   
+const bdiv = document.querySelector('#buttons');
 const rockBtn = document.createElement('button');
+rockBtn.className = 'btn';
+rockBtn.innerText = 'Rock';
 const paperBtn = document.createElement('button');
+paperBtn.className = 'btn';
+paperBtn.innerText = 'Paper';
 const scissorsBtn = document.createElement('button');
- 
+scissorsBtn.className = 'btn';
+scissorsBtn.innerText = 'Scissors';
+bdiv.appendChild(rockBtn);
+bdiv.appendChild(paperBtn);
+bdiv.appendChild(scissorsBtn);
+
+let buttons = document.getElementsByClassName('btn');
+
+
 
 const computerSelection = getComputerChoice();
   playGame();
