@@ -37,18 +37,10 @@ function getComputerChoice() {
     }
   }
   
-  function playGame() {
-    playRound(computerSelection);
-    console.log(`Current Scores:\nYour Score: ${playerScore}\nComputers Score: ${computerScore}`);
-    playRound(computerSelection);
-    console.log(`Current Scores:\nYour Score: ${playerScore}\nComputers Score: ${computerScore}`);
-    playRound(computerSelection);
-    console.log(`Current Scores:\nYour Score: ${playerScore}\nComputers Score: ${computerScore}`);
-    playRound(computerSelection);
-    console.log(`Current Scores:\nYour Score: ${playerScore}\nComputers Score: ${computerScore}`);
-    playRound(computerSelection);
-    console.log(`Current Scores:\nYour Score: ${playerScore}\nComputers Score: ${computerScore}`);
-  }
-  
-  const computerSelection = getComputerChoice();
+const rockBtn = document.createElement('button');
+const paperBtn = document.createElement('button');
+const scissorsBtn = document.createElement('button');
+ 
+
+const computerSelection = getComputerChoice();
   playGame();
