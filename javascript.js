@@ -5,9 +5,8 @@ function getComputerChoice() {
   
   let playerScore = 0;
   let computerScore = 0;
-  
+  let playerChoice = prompt("Choose:\nrock\npaper\nscissors");
   function playRound(computerSelection) {
-    let playerChoice = prompt("Choose:\nrock\npaper\nscissors");
     if (playerChoice === computerSelection) {
       console.log(`It's a tie!\nYou chose: ${playerChoice}\ncomputer chose: ${computerSelection}`);
     } else if (playerChoice === 'rock' && computerSelection === 'paper') {
@@ -53,6 +52,11 @@ bdiv.appendChild(scissorsBtn);
 
 let buttons = document.getElementsByClassName('btn');
 
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', function() {
+          playRound(console.log(playerChoice));
+  })
+}
 
 
 const computerSelection = getComputerChoice();
