@@ -6,6 +6,12 @@ function getComputerChoice() {
 let playerScore = 0;
 let computerScore = 0;
 
+const resu = document.querySelector('#res');
+const result = document.createElement('div');
+result.style.cssText = 'color: red';
+result.textContent = 'Test';
+resu.appendChild(result);
+
 function playRound(playerSelection) {
   let computerSelection = getComputerChoice();
   if (playerSelection === computerSelection) {
