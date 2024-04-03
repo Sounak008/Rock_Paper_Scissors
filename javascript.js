@@ -9,36 +9,36 @@ let computerScore = 0;
 const resu = document.querySelector('#res');
 const result = document.createElement('div');
 result.style.cssText = 'color: red';
-result.textContent = 'Test';
-resu.appendChild(result);
+
 
 function playRound(playerSelection) {
   let computerSelection = getComputerChoice();
   if (playerSelection === computerSelection) {
-    console.log(
-      `It's a tie!\nYou chose: ${playerSelection}\ncomputer chose: ${computerSelection}`
-    );
+    result.textContent =
+      `It's a tie!\nYou chose: ${playerSelection}\ncomputer chose: ${computerSelection}`;
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    console.log("You lose! Paper beats Rock");
+    result.textContent = "You lose! Paper beats Rock";
     computerScore += 1;
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    console.log("You win! Rock beats Scissors");
+    result.textContent = "You win! Rock beats Scissors";
     playerScore += 1;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    console.log("You win! Paper beats Rock");
+    result.textContent = "You win! Paper beats Rock";
     playerScore += 1;
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    console.log("You lose! Scissors beats Paper");
+    result.textContent = "You lose! Scissors beats Paper";
     computerScore += 1;
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    console.log("You lose! Rock beats Scissors");
+    result.textContent = "You lose! Rock beats Scissors";
     computerScore += 1;
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    console.log("You win! Scissors beats Paper");
+    result.textContent = "You win! Scissors beats Paper";
     playerScore += 1;
   }
-  console.log(`Player score: ${playerScore}\nComputer score: ${computerScore}`);
+  result.textContent += `\nPlayer score: ${playerScore}\nComputer score: ${computerScore}`;
 }
+
+resu.appendChild(result);
 
 const bdiv = document.querySelector("#buttons");
 const rockBtn = document.createElement("button");
@@ -57,11 +57,11 @@ bdiv.addEventListener('click', function(event) {
     const playerSelection = target.innerText.toLowerCase();
     playRound(playerSelection);
     if (playerSelection == 'rock')
-      console.log('Rock');
+      result.textContent += 'Rock';
     else if (playerSelection == 'paper')
-      console.log('Paper');
+      result.textContent += 'Paper';
     else
-      console.log('Scisors');
+      result.textContent += 'Scissors';
   }
 });
 
@@ -70,4 +70,3 @@ bdiv.appendChild(paperBtn);
 bdiv.appendChild(scissorsBtn);
 
 const computerSelection = getComputerChoice();
-
