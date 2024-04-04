@@ -5,12 +5,14 @@ function getComputerChoice() {
 
 let playerScore = 0;
 let computerScore = 0;
+let rounds = 0;
 
 const resu = document.querySelector('#res');
 const result = document.createElement('div');
 const resultDiv = document.createElement('div');
 const playerScoreDiv = document.createElement('div');
 const computerScoreDiv = document.createElement('div');
+const winnerDiv = document.createElement('div');
 
 
 result.textContent = "Press the buttons to start playing!";
@@ -40,7 +42,26 @@ function playRound(playerSelection) {
   result.textContent = "";
   playerScoreDiv.textContent = 'Player Score: ' +playerScore;
   computerScoreDiv.textContent = 'Computer Score: ' +computerScore;
+  rounds++;
+  if (rounds >= 5) {
+  resultDiv.textContent = " ";
+  playerScoreDiv.textContent = " ";
+  computerScoreDiv.textContent = " ";
+  result.textContent = "5 rounds completed!";
+  if (playerScore > computerScore) {
+    winnerDiv.textContent = "You won! :D";
+  }
+  else if (computerScore > playerScore) {
+    winnerDiv.textContent = "The Computer won D:";
+  }
+  else{
+    winnerDiv.textContent = "It's a tie!";
+  }
+  return;
 }
+}
+
+
 
 resu.appendChild(result);
 
@@ -75,5 +96,4 @@ bdiv.appendChild(scissorsBtn);
 resu.appendChild(resultDiv);
 resu.appendChild(playerScoreDiv);
 resu.appendChild(computerScoreDiv);
-
-const computerSelection = getComputerChoice();
+resu.appendChild(winnerDiv);
