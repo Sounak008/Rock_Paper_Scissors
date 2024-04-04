@@ -8,34 +8,38 @@ let computerScore = 0;
 
 const resu = document.querySelector('#res');
 const result = document.createElement('div');
-result.style.cssText = 'color: red';
+const resultDiv = document.createElement('div');
+const playerScoreDiv = document.createElement('div');
+const computerScoreDiv = document.createElement('div');
 
 
+result.textContent = "Press the buttons to start playing!";
 function playRound(playerSelection) {
   let computerSelection = getComputerChoice();
   if (playerSelection === computerSelection) {
-    result.textContent =
-      `It's a tie!\nYou chose: ${playerSelection}\ncomputer chose: ${computerSelection}`;
+    resultDiv.textContent = `It's a tie!`;
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    result.textContent = "You lose! Paper beats Rock";
+    resultDiv.textContent = "You lose! Paper beats Rock";
     computerScore += 1;
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    result.textContent = "You win! Rock beats Scissors";
+    resultDiv.textContent = "You win! Rock beats Scissors";
     playerScore += 1;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    result.textContent = "You win! Paper beats Rock";
+    resultDiv.textContent = "You win! Paper beats Rock";
     playerScore += 1;
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    result.textContent = "You lose! Scissors beats Paper";
+    resultDiv.textContent = "You lose! Scissors beats Paper";
     computerScore += 1;
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    result.textContent = "You lose! Rock beats Scissors";
+    resultDiv.textContent = "You lose! Rock beats Scissors";
     computerScore += 1;
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    result.textContent = "You win! Scissors beats Paper";
+    resultDiv.textContent = "You win! Scissors beats Paper";
     playerScore += 1;
   }
-  result.textContent += `\nPlayer score: ${playerScore}\nComputer score: ${computerScore}`;
+  result.textContent = "";
+  playerScoreDiv.textContent = 'Player Score: ' +playerScore;
+  computerScoreDiv.textContent = 'Computer Score: ' +computerScore;
 }
 
 resu.appendChild(result);
@@ -57,16 +61,19 @@ bdiv.addEventListener('click', function(event) {
     const playerSelection = target.innerText.toLowerCase();
     playRound(playerSelection);
     if (playerSelection == 'rock')
-      result.textContent += 'Rock';
+      console.log ('Rock');
     else if (playerSelection == 'paper')
-      result.textContent += 'Paper';
+      console.log ('Paper');
     else
-      result.textContent += 'Scissors';
+      console.log ('Scissors');
   }
 });
 
 bdiv.appendChild(rockBtn);
 bdiv.appendChild(paperBtn);
 bdiv.appendChild(scissorsBtn);
+resu.appendChild(resultDiv);
+resu.appendChild(playerScoreDiv);
+resu.appendChild(computerScoreDiv);
 
 const computerSelection = getComputerChoice();
